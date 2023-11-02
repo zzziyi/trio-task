@@ -4,7 +4,7 @@ FROM mysql:5.7 as build
 
 # Add a database and root password
 # For hints on how to do this, consult the mysql 5.7 image documentation
-ENV MYSQL_DATABASE=db
+ENV MYSQL_DATABASE=flask-db
 ENV MYSQL_ROOT_PASSWORD=rootpw
 
 # Add the content of the .sql file to your image

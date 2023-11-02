@@ -3,7 +3,7 @@ FROM python3.6 as build
 
 # Copy contents into image
 COPY . /app
-WROKDIR /app
+WORKDIR /app
  
 # install pip dependencies from requirements file
 RUN pip install -r requirements.txt 
