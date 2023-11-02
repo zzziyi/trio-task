@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  flask-app:
+    build:
+      context: ./flask-app/.
+      dockerfile: Dockerfile
+    ports:
+     - target: 5500
+       published: 5500
+  db:
+    build:
+      context: ./db
+    enviroment:
+      - MYSQL_ROOT_PASSWORD=rootpw
+      - MYSQL_DATABASE=db1
+  nginx:
+    image: nginx
+    ports:
+     - target: 80
+       published: 80
+    volumes:
+    - source: ./nginx/nginx.conf
+      target: /etc/nginx/nginx.conf
+    networks:
+    - nginx-flask   
+
+networks:
+  nginx-flask
+  

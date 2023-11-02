@@ -1,10 +1,15 @@
 #Use Python 3.6 as a base image
+FROM python3.6 as build
 
 # Copy contents into image
+COPY . /app
+WROKDIR /app
  
 # install pip dependencies from requirements file
- 
+RUN pip install -r requirements.txt 
+
 # Expose correct port
+EXPOSE 5000
 
 # Create an entrypoint
-
+ENTRYPOINT ["python","app.py"]
